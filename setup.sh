@@ -16,6 +16,11 @@ if [ -d /etc/sysctl.d ]; then
 	install_link /opt/farm/ext/ip-noipv6/sysctl/noipv6.conf /etc/sysctl.d/noipv6.conf
 fi
 
+if [ -f /etc/sysctl.d/farmer-ipv6.conf ]; then
+	rm -f /etc/sysctl.d/farmer-ipv6.conf
+fi
+
+
 if ! grep -q preferIPv4 /etc/environment; then
 	echo "forcing Java virtual machines to use ipv4"
 	echo 'JAVA_OPTS="-Djava.net.preferIPv4Stack=true -Djava.net.preferIPv4Addresses=true"' >>/etc/environment
