@@ -13,7 +13,8 @@ echo "disabling ipv6"
 sysctl -qp /opt/farm/ext/ip-noipv6/sysctl/noipv6.conf
 
 if [ -d /etc/sysctl.d ]; then
-	install_link /opt/farm/ext/ip-noipv6/sysctl/noipv6.conf /etc/sysctl.d/noipv6.conf
+	remove_link /etc/sysctl.d/noipv6.conf
+	install_copy /opt/farm/ext/ip-noipv6/sysctl/noipv6.conf /etc/sysctl.d/noipv6.conf
 fi
 
 if [ -f /etc/sysctl.d/farmer-ipv6.conf ]; then
