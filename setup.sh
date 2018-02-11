@@ -3,7 +3,7 @@
 . /opt/farm/scripts/functions.install
 
 
-if [ "`uname`" != "Linux" ]; then
+if [ "`uname`" != "Linux" ] || [ "$HWTYPE" = "oem" ]; then
 	echo "skipping secure kernel setup, unsupported system"
 	exit 0
 fi
